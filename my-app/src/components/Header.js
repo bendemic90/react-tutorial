@@ -1,22 +1,21 @@
-import PropTypes from 'prop-types'
-import Button from '../components/Button'
+import PropTypes from "prop-types";
+import Button from "./Button";
 
-const Header = ({title}) => {
-    return (
-        <header className="header">
-            <h1>{title}</h1>
-            <Button text="Add" color="green" />
-        </header>
-    )
-}
+const Header = ({ title, onAdd, showAdd }) => {
+  return (
+    <header className="header">
+      <h1>{title}</h1>
+      <Button text={showAdd ? "Close" : "Add"} color={showAdd ? "red" : "green" } onClick={onAdd} />
+    </header>
+  );
+};
 
 Header.defaultProps = {
-    title: "Note Taker"
-}
+  title: "Note Taker",
+};
 
 Header.propTypes = {
-    title: PropTypes.string.isRequired,
-}
+  title: PropTypes.string.isRequired,
+};
 
-
-export default Header
+export default Header;
